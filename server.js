@@ -5,6 +5,8 @@ const peerServer = PeerServer({
     port: process.env.PEER_PORT,
     path: process.env.PEER_PATH,
     generateClientId: uuidv4
+}, () => {
+    console.log(`server started with port: ${process.env.PEER_PORT}`)
 });
 
 peerServer.on('connection', (client) => {
