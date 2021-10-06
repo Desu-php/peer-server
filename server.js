@@ -2,8 +2,8 @@ const { PeerServer } = require('peer');
 const { v4: uuidv4 }  = require('uuid');
 
 const peerServer = PeerServer({
-    port: 9000,
-    path: '/myapp',
+    port: process.env.PEER_PORT,
+    path: process.env.PEER_PATH,
     generateClientId: uuidv4
 });
 
