@@ -14,6 +14,7 @@ if (process.env.APP_MODE === 'prod') {
         cert: fs.readFileSync(process.env.SSL_CERTIFICATE)
     }
 }
+console.log('options', options)
 
 const peerServer = PeerServer(options, () => {
     console.log(`server started with port: ${process.env.PEER_PORT}`)
