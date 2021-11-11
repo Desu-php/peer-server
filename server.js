@@ -37,13 +37,13 @@ peerServer.on('message', client => {
 const server = new Turn({
     // set options
     listeningPort: process.env.TURN_PROT,
-    authMech: 'long-term',
+    authMech: 'none',
     credentials: {
         username: process.env.TURN_CREDETINALS
     },
     debugLevel: 'all',
-    debug: (e) => {
-        console.log('e', e)
+    debug: (e, string) => {
+        console.log('debug', string)
     }
 });
 server.start();
