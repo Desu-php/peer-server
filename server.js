@@ -1,6 +1,7 @@
 const {PeerServer} = require('peer');
 const {v4: uuidv4} = require('uuid');
 const fs = require('fs');
+const Turn = require('node-turn');
 
 const options = {
     port: process.env.PEER_PORT,
@@ -31,3 +32,14 @@ peerServer.on('disconnect', (client) => {
 peerServer.on('message', client => {
     console.log('message', client)
 })
+
+
+const server = new Turn({
+    // set options
+    listeningPort: process.env.TURN_PROT,
+    authMech: 'long-term',
+    credentials: {
+        username: process.env.TURN_CREDETINALS
+    }
+});
+server.start();
