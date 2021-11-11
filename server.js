@@ -40,6 +40,10 @@ const server = new Turn({
     authMech: 'long-term',
     credentials: {
         username: process.env.TURN_CREDETINALS
+    },
+    debugLevel: 'all',
+    debug: (e) => {
+        console.log('e', e)
     }
 });
 server.start();
